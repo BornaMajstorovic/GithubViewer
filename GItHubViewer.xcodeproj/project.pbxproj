@@ -8,12 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		02A73CC12AE10A0C00D43A11 /* GItHubViewerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CC02AE10A0C00D43A11 /* GItHubViewerApp.swift */; };
-		02A73CC32AE10A0C00D43A11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CC22AE10A0C00D43A11 /* ContentView.swift */; };
 		02A73CC52AE10A0D00D43A11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02A73CC42AE10A0D00D43A11 /* Assets.xcassets */; };
 		02A73CC82AE10A0D00D43A11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02A73CC72AE10A0D00D43A11 /* Preview Assets.xcassets */; };
 		02A73CD22AE10A0D00D43A11 /* GItHubViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CD12AE10A0D00D43A11 /* GItHubViewerTests.swift */; };
 		02A73CDC2AE10A0D00D43A11 /* GItHubViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CDB2AE10A0D00D43A11 /* GItHubViewerUITests.swift */; };
 		02A73CDE2AE10A0D00D43A11 /* GItHubViewerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CDD2AE10A0D00D43A11 /* GItHubViewerUITestsLaunchTests.swift */; };
+		02A73CEC2AE1154000D43A11 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 02A73CEB2AE1154000D43A11 /* ComposableArchitecture */; };
+		02A73CF72AE13CA500D43A11 /* MainAppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CF32AE13CA500D43A11 /* MainAppAction.swift */; };
+		02A73CF82AE13CA500D43A11 /* MainAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CF42AE13CA500D43A11 /* MainAppView.swift */; };
+		02A73CF92AE13CA500D43A11 /* MainAppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CF52AE13CA500D43A11 /* MainAppReducer.swift */; };
+		02A73CFA2AE13CA500D43A11 /* MainAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CF62AE13CA500D43A11 /* MainAppState.swift */; };
+		02A73CFF2AE13F2E00D43A11 /* RepoListAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CFB2AE13F2E00D43A11 /* RepoListAction.swift */; };
+		02A73D002AE13F2E00D43A11 /* RepoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CFC2AE13F2E00D43A11 /* RepoListView.swift */; };
+		02A73D012AE13F2F00D43A11 /* RepoListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CFD2AE13F2E00D43A11 /* RepoListReducer.swift */; };
+		02A73D022AE13F2F00D43A11 /* RepoListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CFE2AE13F2E00D43A11 /* RepoListState.swift */; };
+		02A73D092AE13F4500D43A11 /* RepoDetailsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73D052AE13F4500D43A11 /* RepoDetailsAction.swift */; };
+		02A73D0A2AE13F4500D43A11 /* RepoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73D062AE13F4500D43A11 /* RepoDetailsView.swift */; };
+		02A73D0B2AE13F4500D43A11 /* RepoDetailsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73D072AE13F4500D43A11 /* RepoDetailsReducer.swift */; };
+		02A73D0C2AE13F4500D43A11 /* RepoDetailsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73D082AE13F4500D43A11 /* RepoDetailsState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +48,6 @@
 /* Begin PBXFileReference section */
 		02A73CBD2AE10A0C00D43A11 /* GItHubViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GItHubViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A73CC02AE10A0C00D43A11 /* GItHubViewerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GItHubViewerApp.swift; sourceTree = "<group>"; };
-		02A73CC22AE10A0C00D43A11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		02A73CC42AE10A0D00D43A11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02A73CC72AE10A0D00D43A11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		02A73CCD2AE10A0D00D43A11 /* GItHubViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GItHubViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +55,18 @@
 		02A73CD72AE10A0D00D43A11 /* GItHubViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GItHubViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A73CDB2AE10A0D00D43A11 /* GItHubViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GItHubViewerUITests.swift; sourceTree = "<group>"; };
 		02A73CDD2AE10A0D00D43A11 /* GItHubViewerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GItHubViewerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		02A73CF32AE13CA500D43A11 /* MainAppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppAction.swift; sourceTree = "<group>"; };
+		02A73CF42AE13CA500D43A11 /* MainAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppView.swift; sourceTree = "<group>"; };
+		02A73CF52AE13CA500D43A11 /* MainAppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppReducer.swift; sourceTree = "<group>"; };
+		02A73CF62AE13CA500D43A11 /* MainAppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppState.swift; sourceTree = "<group>"; };
+		02A73CFB2AE13F2E00D43A11 /* RepoListAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListAction.swift; sourceTree = "<group>"; };
+		02A73CFC2AE13F2E00D43A11 /* RepoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListView.swift; sourceTree = "<group>"; };
+		02A73CFD2AE13F2E00D43A11 /* RepoListReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListReducer.swift; sourceTree = "<group>"; };
+		02A73CFE2AE13F2E00D43A11 /* RepoListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListState.swift; sourceTree = "<group>"; };
+		02A73D052AE13F4500D43A11 /* RepoDetailsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsAction.swift; sourceTree = "<group>"; };
+		02A73D062AE13F4500D43A11 /* RepoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsView.swift; sourceTree = "<group>"; };
+		02A73D072AE13F4500D43A11 /* RepoDetailsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsReducer.swift; sourceTree = "<group>"; };
+		02A73D082AE13F4500D43A11 /* RepoDetailsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02A73CEC2AE1154000D43A11 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,8 +118,13 @@
 		02A73CBF2AE10A0C00D43A11 /* GItHubViewer */ = {
 			isa = PBXGroup;
 			children = (
+				02A73CF22AE13C6700D43A11 /* RepoDetails */,
+				02A73CF12AE13C5D00D43A11 /* RepoList */,
+				02A73CF02AE13B5000D43A11 /* MainApp */,
+				02A73CEF2AE13B4500D43A11 /* AppNetworking */,
+				02A73CEE2AE13B3E00D43A11 /* AppUI */,
+				02A73CED2AE13B3600D43A11 /* AppCore */,
 				02A73CC02AE10A0C00D43A11 /* GItHubViewerApp.swift */,
-				02A73CC22AE10A0C00D43A11 /* ContentView.swift */,
 				02A73CC42AE10A0D00D43A11 /* Assets.xcassets */,
 				02A73CC62AE10A0D00D43A11 /* Preview Content */,
 			);
@@ -127,6 +156,60 @@
 			path = GItHubViewerUITests;
 			sourceTree = "<group>";
 		};
+		02A73CED2AE13B3600D43A11 /* AppCore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppCore;
+			sourceTree = "<group>";
+		};
+		02A73CEE2AE13B3E00D43A11 /* AppUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppUI;
+			sourceTree = "<group>";
+		};
+		02A73CEF2AE13B4500D43A11 /* AppNetworking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppNetworking;
+			sourceTree = "<group>";
+		};
+		02A73CF02AE13B5000D43A11 /* MainApp */ = {
+			isa = PBXGroup;
+			children = (
+				02A73CF32AE13CA500D43A11 /* MainAppAction.swift */,
+				02A73CF42AE13CA500D43A11 /* MainAppView.swift */,
+				02A73CF52AE13CA500D43A11 /* MainAppReducer.swift */,
+				02A73CF62AE13CA500D43A11 /* MainAppState.swift */,
+			);
+			path = MainApp;
+			sourceTree = "<group>";
+		};
+		02A73CF12AE13C5D00D43A11 /* RepoList */ = {
+			isa = PBXGroup;
+			children = (
+				02A73CFB2AE13F2E00D43A11 /* RepoListAction.swift */,
+				02A73CFC2AE13F2E00D43A11 /* RepoListView.swift */,
+				02A73CFD2AE13F2E00D43A11 /* RepoListReducer.swift */,
+				02A73CFE2AE13F2E00D43A11 /* RepoListState.swift */,
+			);
+			path = RepoList;
+			sourceTree = "<group>";
+		};
+		02A73CF22AE13C6700D43A11 /* RepoDetails */ = {
+			isa = PBXGroup;
+			children = (
+				02A73D052AE13F4500D43A11 /* RepoDetailsAction.swift */,
+				02A73D062AE13F4500D43A11 /* RepoDetailsView.swift */,
+				02A73D072AE13F4500D43A11 /* RepoDetailsReducer.swift */,
+				02A73D082AE13F4500D43A11 /* RepoDetailsState.swift */,
+			);
+			path = RepoDetails;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +226,9 @@
 			dependencies = (
 			);
 			name = GItHubViewer;
+			packageProductDependencies = (
+				02A73CEB2AE1154000D43A11 /* ComposableArchitecture */,
+			);
 			productName = GItHubViewer;
 			productReference = 02A73CBD2AE10A0C00D43A11 /* GItHubViewer.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +301,9 @@
 				Base,
 			);
 			mainGroup = 02A73CB42AE10A0C00D43A11;
+			packageReferences = (
+				02A73CEA2AE1154000D43A11 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 02A73CBE2AE10A0C00D43A11 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +346,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02A73CC32AE10A0C00D43A11 /* ContentView.swift in Sources */,
+				02A73CFA2AE13CA500D43A11 /* MainAppState.swift in Sources */,
+				02A73D002AE13F2E00D43A11 /* RepoListView.swift in Sources */,
+				02A73CF72AE13CA500D43A11 /* MainAppAction.swift in Sources */,
+				02A73CF82AE13CA500D43A11 /* MainAppView.swift in Sources */,
+				02A73D012AE13F2F00D43A11 /* RepoListReducer.swift in Sources */,
+				02A73D0C2AE13F4500D43A11 /* RepoDetailsState.swift in Sources */,
+				02A73D092AE13F4500D43A11 /* RepoDetailsAction.swift in Sources */,
+				02A73D0A2AE13F4500D43A11 /* RepoDetailsView.swift in Sources */,
+				02A73D0B2AE13F4500D43A11 /* RepoDetailsReducer.swift in Sources */,
 				02A73CC12AE10A0C00D43A11 /* GItHubViewerApp.swift in Sources */,
+				02A73CF92AE13CA500D43A11 /* MainAppReducer.swift in Sources */,
+				02A73CFF2AE13F2E00D43A11 /* RepoListAction.swift in Sources */,
+				02A73D022AE13F2F00D43A11 /* RepoListState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +688,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		02A73CEA2AE1154000D43A11 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		02A73CEB2AE1154000D43A11 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02A73CEA2AE1154000D43A11 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 02A73CB52AE10A0C00D43A11 /* Project object */;
 }

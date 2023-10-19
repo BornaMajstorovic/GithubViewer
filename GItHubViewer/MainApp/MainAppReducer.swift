@@ -14,7 +14,7 @@ struct MainApp: Reducer {
         Reduce { state, action in
             switch action {
             case .viewAppeared:
-                break
+                state = .repoList(.init())
             case .loading, .repoList:
                 break
             }

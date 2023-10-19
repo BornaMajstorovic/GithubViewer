@@ -1,12 +1,12 @@
 import Foundation
 import ComposableArchitecture
 
-extension RepoDetails: Reducer {
+struct RepoDetails: Reducer {
 
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .customAction:
+            case .customAction, .delegate:
                 return .none
             }
         }

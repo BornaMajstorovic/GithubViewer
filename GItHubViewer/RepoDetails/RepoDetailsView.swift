@@ -7,7 +7,7 @@ extension RepoDetails {
 
         var body: some View {
             WithViewStore(store, observe: { $0 }) { viewStore in
-                Text(viewStore.name)
+                Text("\(viewStore.repo.id)")
             }
         }
     }

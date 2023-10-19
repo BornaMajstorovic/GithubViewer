@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		025E3B5C2AE167D0006A7415 /* RepoList+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025E3B5B2AE167D0006A7415 /* RepoList+Path.swift */; };
 		02A73CC12AE10A0C00D43A11 /* GItHubViewerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CC02AE10A0C00D43A11 /* GItHubViewerApp.swift */; };
 		02A73CC52AE10A0D00D43A11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02A73CC42AE10A0D00D43A11 /* Assets.xcassets */; };
 		02A73CC82AE10A0D00D43A11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02A73CC72AE10A0D00D43A11 /* Preview Assets.xcassets */; };
@@ -26,6 +27,9 @@
 		02A73D0A2AE13F4500D43A11 /* RepoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73D062AE13F4500D43A11 /* RepoDetailsView.swift */; };
 		02A73D0B2AE13F4500D43A11 /* RepoDetailsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73D072AE13F4500D43A11 /* RepoDetailsReducer.swift */; };
 		02A73D0C2AE13F4500D43A11 /* RepoDetailsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73D082AE13F4500D43A11 /* RepoDetailsState.swift */; };
+		02A73D0E2AE1562200D43A11 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73D0D2AE1562200D43A11 /* Networking.swift */; };
+		02A73D112AE1571400D43A11 /* NetworkingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73D102AE1571400D43A11 /* NetworkingModel.swift */; };
+		02A73D132AE15EA100D43A11 /* RepoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73D122AE15EA000D43A11 /* RepoRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		025E3B5B2AE167D0006A7415 /* RepoList+Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepoList+Path.swift"; sourceTree = "<group>"; };
 		02A73CBD2AE10A0C00D43A11 /* GItHubViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GItHubViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A73CC02AE10A0C00D43A11 /* GItHubViewerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GItHubViewerApp.swift; sourceTree = "<group>"; };
 		02A73CC42AE10A0D00D43A11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +72,9 @@
 		02A73D062AE13F4500D43A11 /* RepoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsView.swift; sourceTree = "<group>"; };
 		02A73D072AE13F4500D43A11 /* RepoDetailsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsReducer.swift; sourceTree = "<group>"; };
 		02A73D082AE13F4500D43A11 /* RepoDetailsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsState.swift; sourceTree = "<group>"; };
+		02A73D0D2AE1562200D43A11 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		02A73D102AE1571400D43A11 /* NetworkingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingModel.swift; sourceTree = "<group>"; };
+		02A73D122AE15EA000D43A11 /* RepoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +174,7 @@
 		02A73CEE2AE13B3E00D43A11 /* AppUI */ = {
 			isa = PBXGroup;
 			children = (
+				02A73D122AE15EA000D43A11 /* RepoRowView.swift */,
 			);
 			path = AppUI;
 			sourceTree = "<group>";
@@ -173,6 +182,8 @@
 		02A73CEF2AE13B4500D43A11 /* AppNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				02A73D0F2AE1570D00D43A11 /* Models */,
+				02A73D0D2AE1562200D43A11 /* Networking.swift */,
 			);
 			path = AppNetworking;
 			sourceTree = "<group>";
@@ -195,6 +206,7 @@
 				02A73CFC2AE13F2E00D43A11 /* RepoListView.swift */,
 				02A73CFD2AE13F2E00D43A11 /* RepoListReducer.swift */,
 				02A73CFE2AE13F2E00D43A11 /* RepoListState.swift */,
+				025E3B5B2AE167D0006A7415 /* RepoList+Path.swift */,
 			);
 			path = RepoList;
 			sourceTree = "<group>";
@@ -208,6 +220,14 @@
 				02A73D082AE13F4500D43A11 /* RepoDetailsState.swift */,
 			);
 			path = RepoDetails;
+			sourceTree = "<group>";
+		};
+		02A73D0F2AE1570D00D43A11 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				02A73D102AE1571400D43A11 /* NetworkingModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,13 +372,17 @@
 				02A73CF82AE13CA500D43A11 /* MainAppView.swift in Sources */,
 				02A73D012AE13F2F00D43A11 /* RepoListReducer.swift in Sources */,
 				02A73D0C2AE13F4500D43A11 /* RepoDetailsState.swift in Sources */,
+				02A73D132AE15EA100D43A11 /* RepoRowView.swift in Sources */,
 				02A73D092AE13F4500D43A11 /* RepoDetailsAction.swift in Sources */,
 				02A73D0A2AE13F4500D43A11 /* RepoDetailsView.swift in Sources */,
 				02A73D0B2AE13F4500D43A11 /* RepoDetailsReducer.swift in Sources */,
+				02A73D112AE1571400D43A11 /* NetworkingModel.swift in Sources */,
 				02A73CC12AE10A0C00D43A11 /* GItHubViewerApp.swift in Sources */,
 				02A73CF92AE13CA500D43A11 /* MainAppReducer.swift in Sources */,
 				02A73CFF2AE13F2E00D43A11 /* RepoListAction.swift in Sources */,
 				02A73D022AE13F2F00D43A11 /* RepoListState.swift in Sources */,
+				02A73D0E2AE1562200D43A11 /* Networking.swift in Sources */,
+				025E3B5C2AE167D0006A7415 /* RepoList+Path.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

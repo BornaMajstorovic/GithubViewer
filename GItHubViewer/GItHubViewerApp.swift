@@ -1,12 +1,19 @@
-//
-
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct GItHubViewerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RepoList.RepoListView(store: makeRepoListStore())
+        }
+    }
+}
+
+private extension GItHubViewerApp {
+    func makeRepoListStore() -> Store<RepoList.State, RepoList.Action> {
+        return StoreOf<RepoList>(initialState: .init()) {
+            RepoList()
         }
     }
 }

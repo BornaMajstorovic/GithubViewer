@@ -33,7 +33,7 @@ extension NetworkingModel {
 enum UIModel {}
 
 extension UIModel {
-    struct Repo: Equatable, Identifiable {
+    struct Repo: Equatable, Identifiable, Hashable{
         let id: Int
         let name: String
         let owner: Owner
@@ -42,9 +42,21 @@ extension UIModel {
         let size: Int
     }
 
-    struct Owner: Equatable, Identifiable {
+    struct Owner: Equatable, Identifiable, Hashable {
         let id: Int
         let login: String
     }
 }
 
+enum RepoError: Error {
+    case itemAlreadyFetched
+}
+
+extension Set where Element == UIModel.Repo {
+    mutating func insertOrThrow(_ element: UIModel.Repo) throws {
+        if first(where: { $0.id == element.id }) != nil {
+            throw RepoError.itemAlreadyFetched
+        }
+        insert(element)
+    }
+}

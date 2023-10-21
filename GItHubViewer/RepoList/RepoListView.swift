@@ -10,7 +10,10 @@ extension RepoList {
                 WithViewStore(store, observe: { $0 }) { viewStore in
                     ScrollView {
                         if viewStore.state.loadingState.shouldShowInitialLoadingView {
-                            loadingView
+//                            loadingView
+                            ProgressView()
+                                .progressViewStyle(.circular)
+                                .frame(width: 48, height: 48)
                         } else {
                             mainView(viewStore: viewStore)
                         }
@@ -30,15 +33,12 @@ extension RepoList {
             }
         }
 
-        private var loadingView: some SwiftUI.View {
+        private var loadingView: some View {
             VStack {
                 Spacer()
-                ProgressView()
-                    .progressViewStyle(.circular)
-                    .frame(width: 48, height: 48)
+
                 Spacer()
             }
-            .frame(maxWidth: .infinity)
         }
 
         @ViewBuilder private func mainView(viewStore: ViewStore<State, Action>) -> some View {
@@ -46,7 +46,7 @@ extension RepoList {
                 .font(.title)
                 .foregroundStyle(.gray)
             LazyVStack {
-                ForEach(Array(viewStore.repos)) { repo in
+                ForEach(viewStore.repos) { repo in
                     RepoRowView(repoName: repo.name, ownerName: repo.owner.login) {
                         viewStore.send(.repoTapped(repo: repo))
                     }
@@ -63,25 +63,31 @@ extension RepoList {
             ZStack {
                 switch loadingState {
                 case .initial, .loadingFirstPage, .loadingNextPage:
-                    // 
                     ProgressView()
                         .progressViewStyle(.circular)
                         .onAppear {
                             listReachedBottomAction()
                         }
-                case .errored:
-                    Button(action: {
-                        listReachedBottomAction()
-                    }, label: {
-                        Text("Try again!")
-                            .foregroundStyle(.gray)
-                            .padding(8)
-                            .background {
-                                RoundedRectangle(cornerRadius: 12)
-                                    .foregroundStyle(.red)
-                            }
-                    })
+                case .failure(message: let message):
+                    VStack {
+                        Text(message)
+                            .font(.body)
+                            .foregroundStyle(.red)
+                        Button(action: {
+                            listReachedBottomAction()
+                        }, label: {
+                            Text("Try again!")
+                                .foregroundStyle(.gray)
+                                .padding(8)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .foregroundStyle(.red)
+                                }
+                        })
+                    }
                 case .finished:
+                    RoundedRectangle(cornerRadius: 12)
+                        .foregroundStyle(.green)
                     Divider()
                 }
             }

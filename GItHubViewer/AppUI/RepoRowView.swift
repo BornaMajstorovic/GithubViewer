@@ -25,5 +25,6 @@ struct RepoRowView: View {
             RoundedRectangle(cornerRadius: 12)
                 .foregroundStyle(.gray)
         }
+        .frame(height: 60)
     }
 }

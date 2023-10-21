@@ -52,11 +52,11 @@ enum RepoError: Error {
     case itemAlreadyFetched
 }
 
-extension Set where Element == UIModel.Repo {
-    mutating func insertOrThrow(_ element: UIModel.Repo) throws {
+extension Array where Element == UIModel.Repo {
+    mutating func appendOrThrow(_ element: UIModel.Repo) throws {
         if first(where: { $0.id == element.id }) != nil {
             throw RepoError.itemAlreadyFetched
         }
-        insert(element)
+        append(element)
     }
 }

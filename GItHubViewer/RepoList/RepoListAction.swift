@@ -2,7 +2,7 @@ import Foundation
 import ComposableArchitecture
 
 extension RepoList {
-    enum Action {
+    enum Action: BindableAction {
         case viewAppeared
         case delegate(Delegate)
         case repoTapped(repo: UIModel.Repo)
@@ -12,8 +12,8 @@ extension RepoList {
         case fetchDataResult([UIModel.Repo])
         case listReachedBottom
 
-        enum Delegate {
+        case binding(BindingAction<State>)
 
-        }
+        enum Delegate {}
     }
 }

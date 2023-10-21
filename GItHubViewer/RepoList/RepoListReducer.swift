@@ -3,8 +3,10 @@ import ComposableArchitecture
 
 struct RepoList: Reducer {
     @Dependency(\.networking) var networking
+    @Dependency(\.rateLimiter) var rateLimiter
 
     var body: some ReducerOf<Self> {
+        BindingReducer()
         Reduce { state, action in
             switch action {
             case .viewAppeared:
@@ -24,26 +26,37 @@ struct RepoList: Reducer {
                     do {
                         let repos = try await networking.fetchRepo(from: currentPage)
                         await send(.fetchDataResult(repos.map { $0.mapToUI() }))
+                    } catch let error as NetworkingError {
+                        if error.isContentUnprocessable {
+                            await send(.binding(.set(\.$loadingState, .finished)))
+                        } else {
+                            await send(.binding(.set(\.$loadingState, .failure(message: error.errorDescription))))
+                        }
                     } catch {
-                        print("error")
+                        await send(.binding(.set(\.$loadingState, .failure(message: "Critical error - \(error.localizedDescription)"))))
                     }
                 }
             case .fetchDataResult(let repos):
                 state.loadingState = .loadingNextPage
                 state.currentPage += 1
                 do {
-                    try repos.forEach { try state.repos.insertOrThrow($0) }
+                    try repos.forEach { try state.repos.appendOrThrow($0) }
                 } catch let error as RepoError {
                     if case .itemAlreadyFetched = error {
                         state.isMoreDataAvailable = false
                         state.loadingState = .finished
                     }
                 } catch {
-                    state.loadingState = .errored
-                    print("Critical - should not happen")
+                    state.loadingState = .failure(message: "Critical error - \(error.localizedDescription)")
                 }
             case .listReachedBottom:
-                return .send(.fetchData)
+                return .run { send in
+                    await rateLimiter.rateLimit(maxRequestsPerMinute: Constants.NetworkingConstants.maxRequestsPerMinute) {
+                        await send(.fetchData)
+                    }
+                }
+            case .binding:
+                break
             }
             return .none
         }

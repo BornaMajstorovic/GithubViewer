@@ -3,10 +3,9 @@ import ComposableArchitecture
 
 extension RepoList {
     struct State: Equatable {
-        let pageSize: Int = 60
         var currentPage: Int = 1
-        var loadingState: RepoListLoadingState = .initial
-        var repos = Set<UIModel.Repo>()
+        @BindingState var loadingState: RepoListLoadingState = .initial
+        var repos: [UIModel.Repo] = []
         var path = StackState<Path.State>()
         var isMoreDataAvailable: Bool = true
     }
@@ -14,7 +13,7 @@ extension RepoList {
 
 extension RepoList {
     enum RepoListLoadingState: Equatable {
-        case initial, loadingFirstPage, loadingNextPage, errored, finished
+        case initial, loadingFirstPage, loadingNextPage, failure(message: String), finished
 
         var shouldShowInitialLoadingView: Bool {
             self == .initial || self == .loadingFirstPage

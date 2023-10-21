@@ -37,6 +37,7 @@
 		02A73D0E2AE1562200D43A11 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73D0D2AE1562200D43A11 /* Networking.swift */; };
 		02A73D112AE1571400D43A11 /* NetworkingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73D102AE1571400D43A11 /* NetworkingModel.swift */; };
 		02A73D132AE15EA100D43A11 /* RepoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73D122AE15EA000D43A11 /* RepoRowView.swift */; };
+		02E1668C2AE4664B004D7FEA /* ScrollViewWithTopShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1668B2AE4664B004D7FEA /* ScrollViewWithTopShadow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		02A73D0D2AE1562200D43A11 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		02A73D102AE1571400D43A11 /* NetworkingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingModel.swift; sourceTree = "<group>"; };
 		02A73D122AE15EA000D43A11 /* RepoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoRowView.swift; sourceTree = "<group>"; };
+		02E1668B2AE4664B004D7FEA /* ScrollViewWithTopShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewWithTopShadow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,7 +202,7 @@
 		02A73CEE2AE13B3E00D43A11 /* AppUI */ = {
 			isa = PBXGroup;
 			children = (
-				02A73D122AE15EA000D43A11 /* RepoRowView.swift */,
+				02E1668B2AE4664B004D7FEA /* ScrollViewWithTopShadow.swift */,
 			);
 			path = AppUI;
 			sourceTree = "<group>";
@@ -231,6 +233,7 @@
 		02A73CF12AE13C5D00D43A11 /* RepoList */ = {
 			isa = PBXGroup;
 			children = (
+				02E1668D2AE46656004D7FEA /* Views */,
 				02A73CFB2AE13F2E00D43A11 /* RepoListAction.swift */,
 				02A73CFC2AE13F2E00D43A11 /* RepoListView.swift */,
 				02A73CFD2AE13F2E00D43A11 /* RepoListReducer.swift */,
@@ -257,6 +260,14 @@
 				02A73D102AE1571400D43A11 /* NetworkingModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		02E1668D2AE46656004D7FEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02A73D122AE15EA000D43A11 /* RepoRowView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,6 +408,7 @@
 			files = (
 				02A73CFA2AE13CA500D43A11 /* MainAppState.swift in Sources */,
 				02A73D002AE13F2E00D43A11 /* RepoListView.swift in Sources */,
+				02E1668C2AE4664B004D7FEA /* ScrollViewWithTopShadow.swift in Sources */,
 				02A73CF72AE13CA500D43A11 /* MainAppAction.swift in Sources */,
 				02A0767E2AE3EC3E0003DA69 /* RateLimiter.swift in Sources */,
 				02A076812AE3EC680003DA69 /* RateLimiterKey.swift in Sources */,

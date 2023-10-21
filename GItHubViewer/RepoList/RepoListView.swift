@@ -5,24 +5,30 @@ extension RepoList {
     struct RepoListView: View {
         let store: Store<State, Action>
 
+        @SwiftUI.State private var contentOffset: CGFloat = .zero
+
+        private var isContentOffsetThresholdPassed: Bool {
+            contentOffset < -32
+        }
         var body: some View {
             NavigationStackStore(store.navigationStore) {
                 WithViewStore(store, observe: { $0 }) { viewStore in
-                    ScrollView {
+                    ScrollViewWithContentOffset(offset: $contentOffset) {
                         if viewStore.state.loadingState.shouldShowInitialLoadingView {
-//                            loadingView
-                            ProgressView()
-                                .progressViewStyle(.circular)
-                                .frame(width: 48, height: 48)
+                            loadingView
                         } else {
                             mainView(viewStore: viewStore)
                         }
                     }
-                    .contentMargins(24, for: .scrollContent)
                     .onAppear {
                         viewStore.send(.viewAppeared)
                     }
                 }
+                .toolbar {
+                    ToolbarItem(placement: .principal) { Text(isContentOffsetThresholdPassed ? "Github viewer" : "").foregroundColor(.white) }
+                }
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbarBackground(Color.gray, for: .navigationBar)
             } destination: { store in
                 switch store {
                 case .repoDetails:
@@ -36,13 +42,15 @@ extension RepoList {
         private var loadingView: some View {
             VStack {
                 Spacer()
-
+                ProgressView()
+                    .progressViewStyle(.circular)
+                    .frame(width: 48, height: 48)
                 Spacer()
             }
         }
 
         @ViewBuilder private func mainView(viewStore: ViewStore<State, Action>) -> some View {
-            Text("GithubViewer")
+            Text("Github viewer")
                 .font(.title)
                 .foregroundStyle(.gray)
             LazyVStack {
@@ -92,7 +100,6 @@ extension RepoList {
                 }
             }
             .frame(height: 50)
-
         }
     }
 }

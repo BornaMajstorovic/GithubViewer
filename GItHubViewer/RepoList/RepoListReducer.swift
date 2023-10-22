@@ -24,8 +24,18 @@ struct RepoList: Reducer {
             case .fetchData:
                 return .run { [currentPage = state.currentPage] send in
                     do {
-                        let repos = try await networking.fetchRepo(from: currentPage)
-                        await send(.fetchDataResult(repos.map { $0.mapToUI() }))
+                        let path = Endpoint.swiftRepos.path
+                        let queryItems = [
+                            URLQueryItem(name: "q", value: "language:swift"),
+                            URLQueryItem(name: "sort", value: "stars"),
+                            URLQueryItem(name: "order", value: "desc"),
+                            URLQueryItem(name: "page", value: "\(currentPage)")
+                        ]
+
+                        let repoRequest = APIRequest<NetworkingModel.Base>(path: path, queryItems: queryItems)
+
+                        let repos = try await networking.performRequest(repoRequest)
+                        await send(.fetchDataResult(repos.items.map { $0.mapToUI() }))
                     } catch let error as NetworkingError {
                         if error.isContentUnprocessable {
                             await send(.binding(.set(\.$loadingState, .finished)))

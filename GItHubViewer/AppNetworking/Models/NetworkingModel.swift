@@ -3,7 +3,7 @@ import Foundation
 enum NetworkingModel {}
 
 extension NetworkingModel {
-    struct Base: Codable {
+    struct Base: Decodable {
         let items: [Repo]
     }
 

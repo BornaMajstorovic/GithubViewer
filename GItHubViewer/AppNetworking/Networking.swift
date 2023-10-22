@@ -1,5 +1,5 @@
 import Foundation
 
 protocol Networking {
-    func fetchRepo(from page: Int) async throws -> [NetworkingModel.Repo]
+    func performRequest<T: Decodable>(_ request: APIRequest<T>) async throws -> T
 }

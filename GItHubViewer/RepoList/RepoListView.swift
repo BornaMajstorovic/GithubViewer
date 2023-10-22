@@ -13,7 +13,7 @@ extension RepoList {
         var body: some View {
             NavigationStackStore(store.navigationStore) {
                 WithViewStore(store, observe: { $0 }) { viewStore in
-                    ScrollViewWithContentOffset(offset: $contentOffset) {
+                    ZStack {
                         if viewStore.state.loadingState.shouldShowInitialLoadingView {
                             loadingView
                         } else {
@@ -44,27 +44,32 @@ extension RepoList {
                 Spacer()
                 ProgressView()
                     .progressViewStyle(.circular)
-                    .frame(width: 48, height: 48)
+                    .frame(width: 60, height: 60)
+                Spacer()
                 Spacer()
             }
         }
 
         @ViewBuilder private func mainView(viewStore: ViewStore<State, Action>) -> some View {
-            Text("Github viewer")
-                .font(.title)
-                .foregroundStyle(.gray)
-            LazyVStack {
-                ForEach(viewStore.repos) { repo in
-                    RepoRowView(repoName: repo.name, ownerName: repo.owner.login) {
-                        viewStore.send(.repoTapped(repo: repo))
+            ScrollViewWithContentOffset(offset: $contentOffset) {
+                Text("Github viewer")
+                    .font(.title)
+                    .foregroundStyle(.gray)
+                LazyVStack {
+                    ForEach(viewStore.repos) { repo in
+                        RepoRowView(repoName: repo.name, ownerName: repo.owner.login) {
+                            viewStore.send(.repoTapped(repo: repo))
+                        }
                     }
-                }
-                if viewStore.repos.count > 0 && viewStore.isMoreDataAvailable {
-                    rowLoadingIndicator(loadingState: viewStore.loadingState) {
-                        viewStore.send(.listReachedBottom)
+                    if viewStore.repos.count > 0 && viewStore.isMoreDataAvailable {
+                        rowLoadingIndicator(loadingState: viewStore.loadingState) {
+                            viewStore.send(.listReachedBottom)
+                        }
                     }
                 }
             }
+            .scrollIndicators(.hidden)
+            .padding(.horizontal, 24)
         }
 
         @ViewBuilder private func rowLoadingIndicator(loadingState: RepoListLoadingState, listReachedBottomAction: @escaping () -> Void) -> some View {
@@ -79,12 +84,13 @@ extension RepoList {
                 case .failure(message: let message):
                     VStack {
                         Text(message)
-                            .font(.body)
+                            .font(.subheadline)
                             .foregroundStyle(.red)
                         Button(action: {
                             listReachedBottomAction()
                         }, label: {
                             Text("Try again!")
+                                .font(.subheadline)
                                 .foregroundStyle(.gray)
                                 .padding(8)
                                 .background {
@@ -95,11 +101,15 @@ extension RepoList {
                     }
                 case .finished:
                     RoundedRectangle(cornerRadius: 12)
-                        .foregroundStyle(.green)
-                    Divider()
+                        .foregroundStyle(.green.opacity(0.5))
+                        .overlay {
+                            Text("You scrolled to the end!")
+                                .font(.subheadline)
+                                .foregroundStyle(.green)
+                        }
                 }
             }
-            .frame(height: 50)
+            .frame(height: 60)
         }
     }
 }

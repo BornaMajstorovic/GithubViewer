@@ -2,7 +2,7 @@ import Foundation
 import ComposableArchitecture
 
 struct RepoList: Reducer {
-    @Dependency(\.networking) var networking
+    @Dependency(\.repoRepository) var repoRepository
     @Dependency(\.rateLimiter) var rateLimiter
 
     var body: some ReducerOf<Self> {
@@ -24,18 +24,8 @@ struct RepoList: Reducer {
             case .fetchData:
                 return .run { [currentPage = state.currentPage] send in
                     do {
-                        let path = Endpoint.swiftRepos.path
-                        let queryItems = [
-                            URLQueryItem(name: "q", value: "language:swift"),
-                            URLQueryItem(name: "sort", value: "stars"),
-                            URLQueryItem(name: "order", value: "desc"),
-                            URLQueryItem(name: "page", value: "\(currentPage)")
-                        ]
-
-                        let repoRequest = APIRequest<NetworkingModel.Base>(path: path, queryItems: queryItems)
-
-                        let repos = try await networking.performRequest(repoRequest)
-                        await send(.fetchDataResult(repos.items.map { $0.mapToUI() }))
+                        let repos = try await repoRepository.fetchRepos(page: currentPage)
+                        await send(.fetchDataResult(repos))
                     } catch let error as NetworkingError {
                         if error.isContentUnprocessable {
                             await send(.binding(.set(\.$loadingState, .finished)))

@@ -1,7 +1,7 @@
 import Foundation
 
 actor LiveRateLimiter: RateLimiter {
-    static let shared: RateLimiter = LiveRateLimiter()
+    static let shared = LiveRateLimiter()
     private init() {}
     private var requestTimestamps: [Date] = []
 

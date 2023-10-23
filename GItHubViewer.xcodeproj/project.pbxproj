@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		025638BB2AE67022009A4020 /* UIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025638BA2AE67022009A4020 /* UIModels.swift */; };
+		025638C02AE68686009A4020 /* ContributorCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025638BF2AE68686009A4020 /* ContributorCardView.swift */; };
 		025E3B5C2AE167D0006A7415 /* RepoList+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025E3B5B2AE167D0006A7415 /* RepoList+Path.swift */; };
 		02A076782AE3E3B70003DA69 /* LiveNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A076772AE3E3B70003DA69 /* LiveNetworking.swift */; };
 		02A0767A2AE3E3C10003DA69 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A076792AE3E3C10003DA69 /* NetworkingError.swift */; };
@@ -40,6 +41,7 @@
 		02A9E8DE2AE582AA00BFC3A5 /* RepoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9E8DD2AE582AA00BFC3A5 /* RepoRepository.swift */; };
 		02A9E8E02AE5832200BFC3A5 /* RepoRepositoryKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9E8DF2AE5832200BFC3A5 /* RepoRepositoryKey.swift */; };
 		02A9E8E22AE5832A00BFC3A5 /* LiveRepoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9E8E12AE5832A00BFC3A5 /* LiveRepoRepository.swift */; };
+		02E047592AE695BE0036A2D1 /* GrayBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E047582AE695BE0036A2D1 /* GrayBackgroundView.swift */; };
 		02E1668C2AE4664B004D7FEA /* ScrollViewWithTopShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1668B2AE4664B004D7FEA /* ScrollViewWithTopShadow.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		025638BA2AE67022009A4020 /* UIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIModels.swift; sourceTree = "<group>"; };
+		025638BF2AE68686009A4020 /* ContributorCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributorCardView.swift; sourceTree = "<group>"; };
 		025E3B5B2AE167D0006A7415 /* RepoList+Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepoList+Path.swift"; sourceTree = "<group>"; };
 		0288B9012AE5897700186EE1 /* URLMacro */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = URLMacro; sourceTree = "<group>"; };
 		02A076772AE3E3B70003DA69 /* LiveNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveNetworking.swift; sourceTree = "<group>"; };
@@ -97,6 +100,7 @@
 		02A9E8DD2AE582AA00BFC3A5 /* RepoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoRepository.swift; sourceTree = "<group>"; };
 		02A9E8DF2AE5832200BFC3A5 /* RepoRepositoryKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoRepositoryKey.swift; sourceTree = "<group>"; };
 		02A9E8E12AE5832A00BFC3A5 /* LiveRepoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveRepoRepository.swift; sourceTree = "<group>"; };
+		02E047582AE695BE0036A2D1 /* GrayBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayBackgroundView.swift; sourceTree = "<group>"; };
 		02E1668B2AE4664B004D7FEA /* ScrollViewWithTopShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewWithTopShadow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +151,7 @@
 		02A6FBA32AE53CC700BED45D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				025638BF2AE68686009A4020 /* ContributorCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				02E1668B2AE4664B004D7FEA /* ScrollViewWithTopShadow.swift */,
+				02E047582AE695BE0036A2D1 /* GrayBackgroundView.swift */,
 			);
 			path = AppUI;
 			sourceTree = "<group>";
@@ -455,12 +461,14 @@
 				02A6FBA62AE579B200BED45D /* HTTPMethod.swift in Sources */,
 				02A076782AE3E3B70003DA69 /* LiveNetworking.swift in Sources */,
 				02A0767A2AE3E3C10003DA69 /* NetworkingError.swift in Sources */,
+				025638C02AE68686009A4020 /* ContributorCardView.swift in Sources */,
 				02A73D092AE13F4500D43A11 /* RepoDetailsAction.swift in Sources */,
 				02A076832AE3ED050003DA69 /* LiveRateLimiter.swift in Sources */,
 				02A73D0A2AE13F4500D43A11 /* RepoDetailsView.swift in Sources */,
 				02A73D0B2AE13F4500D43A11 /* RepoDetailsReducer.swift in Sources */,
 				02A73D112AE1571400D43A11 /* NetworkingModel.swift in Sources */,
 				02A73CC12AE10A0C00D43A11 /* GItHubViewerApp.swift in Sources */,
+				02E047592AE695BE0036A2D1 /* GrayBackgroundView.swift in Sources */,
 				02A0767C2AE3E3CB0003DA69 /* NetworkingKey.swift in Sources */,
 				02A9E8E22AE5832A00BFC3A5 /* LiveRepoRepository.swift in Sources */,
 				02A73CFF2AE13F2E00D43A11 /* RepoListAction.swift in Sources */,

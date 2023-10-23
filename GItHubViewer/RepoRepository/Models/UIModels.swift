@@ -10,6 +10,12 @@ enum UIModel {
         let sizeOfRepo: Int
         let contributorsUrlString: String
     }
+
+    struct Contributor: Identifiable, Equatable {
+        let id: Int
+        let name: String
+        let numberOfContributions: Int
+    }
 }
 
 enum RepoError: Error {

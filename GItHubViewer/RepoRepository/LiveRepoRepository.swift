@@ -21,6 +21,14 @@ class LiveRepoRepository: RepoRepository{
         let repos = try await networking.performRequest(repoRequest)
         return repos.items.map { $0.mapToUI() }
     }
+
+    func fetchContributors(for repo: UIModel.Repo) async throws -> [UIModel.Contributor] {
+        let path = Endpoint.contributors(repo.ownerName, repo.repoName).path
+        let contributorsRequest = APIRequest<[NetworkingModel.Contributor]>(path: path)
+
+        let contributors = try await networking.performRequest(contributorsRequest)
+        return contributors.map { $0.mapToUI() }
+    }
 }
 
 fileprivate extension NetworkingModel.Repo {
@@ -35,4 +43,11 @@ fileprivate extension NetworkingModel.Repo {
             contributorsUrlString: contributorsUrlString
         )
     }
+}
+
+fileprivate extension NetworkingModel.Contributor {
+    func mapToUI() -> UIModel.Contributor {
+        .init(id: id, name: login, numberOfContributions: contributions)
+    }
+
 }

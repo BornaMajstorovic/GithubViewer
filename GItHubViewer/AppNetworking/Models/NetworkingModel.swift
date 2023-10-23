@@ -29,4 +29,10 @@ enum NetworkingModel {
         let id: Int
         let login: String
     }
+
+    struct Contributor: Codable {
+        let id: Int
+        let login: String
+        let contributions: Int
+    }
 }

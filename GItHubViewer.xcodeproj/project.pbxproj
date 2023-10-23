@@ -191,10 +191,8 @@
 		02A73CBF2AE10A0C00D43A11 /* GItHubViewer */ = {
 			isa = PBXGroup;
 			children = (
-				02C9ED312AE57D3B00FF3A9B /* RepoRepository */,
-				02A73CF22AE13C6700D43A11 /* RepoDetails */,
-				02A73CF12AE13C5D00D43A11 /* RepoList */,
-				02A73CEF2AE13B4500D43A11 /* AppNetworking */,
+				02E0475B2AE69C690036A2D1 /* Modules */,
+				02E0475A2AE69C3F0036A2D1 /* Dependencies */,
 				02A73CEE2AE13B3E00D43A11 /* AppUI */,
 				02A73CED2AE13B3600D43A11 /* AppCore */,
 				02A73CC02AE10A0C00D43A11 /* GItHubViewerApp.swift */,
@@ -232,7 +230,6 @@
 		02A73CED2AE13B3600D43A11 /* AppCore */ = {
 			isa = PBXGroup;
 			children = (
-				02A0767F2AE3EC570003DA69 /* RateLimiter */,
 				02A076842AE3EE0B0003DA69 /* Constants.swift */,
 			);
 			path = AppCore;
@@ -301,6 +298,25 @@
 				02A9E8E12AE5832A00BFC3A5 /* LiveRepoRepository.swift */,
 			);
 			path = RepoRepository;
+			sourceTree = "<group>";
+		};
+		02E0475A2AE69C3F0036A2D1 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				02A0767F2AE3EC570003DA69 /* RateLimiter */,
+				02A73CEF2AE13B4500D43A11 /* AppNetworking */,
+				02C9ED312AE57D3B00FF3A9B /* RepoRepository */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		02E0475B2AE69C690036A2D1 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				02A73CF22AE13C6700D43A11 /* RepoDetails */,
+				02A73CF12AE13C5D00D43A11 /* RepoList */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		02E1668D2AE46656004D7FEA /* Views */ = {

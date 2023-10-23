@@ -3,9 +3,9 @@ import Foundation
 actor LiveRateLimiter: RateLimiter {
     static let shared = LiveRateLimiter()
     private init() {}
-    private var requestTimestamps: [Date] = []
 
     func rateLimit(maxRequestsPerMinute: Int, action: () async -> Void) async {
+        var requestTimestamps: [Date] = []
         let interval = 60.0 / Double(maxRequestsPerMinute)
         let now = Date()
 

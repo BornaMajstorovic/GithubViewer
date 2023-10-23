@@ -18,22 +18,16 @@ extension RepoDetails {
                             .foregroundStyle(.gray.opacity(0.2))
                     }
 
-
-                    ScrollView(.horizontal) {
-                        HStack(spacing: 16) {
-                            ForEach(viewStore.contributors) { contributor in
-                                ContributorCardView(contributor: contributor)
-                            }
-                        }
-                        .scrollTargetLayout()
-                    }.scrollIndicators(.hidden)
-                    .contentMargins(24, for: .scrollContent)
-                    .scrollTargetBehavior(.viewAligned)
+                    horizontalScrollView(contributors: viewStore.contributors)
                 }
                 .onAppear {
                     viewStore.send(.viewAppeared)
                 }
-                .navigationTitle(viewStore.navigationTitle)
+                .toolbar {
+                    ToolbarItem(placement: .principal) { Text(viewStore.navigationTitle).foregroundColor(.white) }
+                }
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbarBackground(Color.gray, for: .navigationBar)
             }
         }
 
@@ -47,6 +41,20 @@ extension RepoDetails {
                     .font(.caption2)
                     .foregroundStyle(.black.opacity(0.5))
             }
+        }
+
+        private func horizontalScrollView(contributors: [UIModel.Contributor]) -> some View {
+            ScrollView(.horizontal) {
+                HStack(spacing: 16) {
+                    ForEach(contributors) { contributor in
+                        ContributorCardView(contributor: contributor)
+                    }
+                }
+                .scrollTargetLayout()
+            }
+            .scrollIndicators(.hidden)
+            .contentMargins(24, for: .scrollContent)
+            .scrollTargetBehavior(.viewAligned)
         }
     }
 }

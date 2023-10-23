@@ -1,8 +1,6 @@
 import Foundation
 
-enum NetworkingModel {}
-
-extension NetworkingModel {
+enum NetworkingModel {
     struct Base: Decodable {
         let items: [Repo]
     }
@@ -11,52 +9,24 @@ extension NetworkingModel {
         let id: Int
         let name: String
         let owner: Owner
-        let stargazers_count: Int
-        let forks_count: Int
+        let numberOfStars: Int
+        let numberOfForks: Int
         let size: Int
+        let contributorsUrlString: String
 
-        func mapToUI() -> UIModel.Repo {
-            .init(id: id, name: name, owner: owner.mapToUI(), stargazers_count: stargazers_count, forks_count: forks_count, size: size)
+        enum CodingKeys: String, CodingKey {
+            case id
+            case name
+            case owner
+            case numberOfStars = "stargazers_count"
+            case numberOfForks = "forks_count"
+            case size
+            case contributorsUrlString = "contributors_url"
         }
     }
 
     struct Owner: Codable {
         let id: Int
         let login: String
-
-        func mapToUI() -> UIModel.Owner {
-            .init(id: id, login: login)
-        }
-    }
-}
-
-enum UIModel {}
-
-extension UIModel {
-    struct Repo: Equatable, Identifiable, Hashable{
-        let id: Int
-        let name: String
-        let owner: Owner
-        let stargazers_count: Int
-        let forks_count: Int
-        let size: Int
-    }
-
-    struct Owner: Equatable, Identifiable, Hashable {
-        let id: Int
-        let login: String
-    }
-}
-
-enum RepoError: Error {
-    case itemAlreadyFetched
-}
-
-extension Array where Element == UIModel.Repo {
-    mutating func appendOrThrow(_ element: UIModel.Repo) throws {
-        if first(where: { $0.id == element.id }) != nil {
-            throw RepoError.itemAlreadyFetched
-        }
-        append(element)
     }
 }

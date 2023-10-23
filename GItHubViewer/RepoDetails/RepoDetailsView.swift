@@ -9,17 +9,17 @@ extension RepoDetails {
             WithViewStore(store, observe: { $0 }) { viewStore in
                 VStack {
                     HStack {
-                        Text("\(viewStore.repo.name)")
+                        Text("\(viewStore.repo.repoName)")
                         Spacer()
-                        Text("by \(viewStore.repo.owner.login)")
+                        Text("by \(viewStore.repo.ownerName)")
                     }
                     .font(.title)
                     .foregroundStyle(.gray)
-                    Text("Stars count: \(viewStore.repo.stargazers_count)")
-                    Text("Fork count: \(viewStore.repo.forks_count)")
-                    Text("Size: \(viewStore.repo.size)")
+                    Text("Stars count: \(viewStore.repo.numberOfStars)")
+                    Text("Fork count: \(viewStore.repo.numberOfForks)")
+                    Text("Size: \(viewStore.repo.sizeOfRepo)")
 
-                    Text("Contributors: ")
+                    Text("Contributors: \(viewStore.repo.contributorsUrlString)")
                 }
             }
         }

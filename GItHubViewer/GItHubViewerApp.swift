@@ -5,15 +5,15 @@ import ComposableArchitecture
 struct GItHubViewerApp: App {
     var body: some Scene {
         WindowGroup {
-            MainApp.MainAppView(store: makeMainAppStore())
+            RepoList.RepoListView(store: makeRepoListStore())
         }
     }
 }
 
 private extension GItHubViewerApp {
-    func makeMainAppStore() -> Store<MainApp.State, MainApp.Action> {
-        return StoreOf<MainApp>(initialState: MainApp.State.loading) {
-            MainApp()
+    func makeRepoListStore() -> Store<RepoList.State, RepoList.Action> {
+        return StoreOf<RepoList>(initialState: .init()) {
+            RepoList()
         }
     }
 }

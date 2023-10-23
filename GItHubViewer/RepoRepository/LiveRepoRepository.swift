@@ -22,3 +22,17 @@ class LiveRepoRepository: RepoRepository{
         return repos.items.map { $0.mapToUI() }
     }
 }
+
+fileprivate extension NetworkingModel.Repo {
+    func mapToUI() -> UIModel.Repo {
+        .init(
+            id: id,
+            repoName: name,
+            ownerName: owner.login,
+            numberOfStars: numberOfStars,
+            numberOfForks: numberOfForks,
+            sizeOfRepo: size,
+            contributorsUrlString: contributorsUrlString
+        )
+    }
+}

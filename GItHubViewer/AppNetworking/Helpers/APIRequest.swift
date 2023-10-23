@@ -4,18 +4,15 @@ struct APIRequest<T: Decodable> {
     let path: String
     let httpMethod: HTTPMethod
     let queryItems: [URLQueryItem]
-    let autentification: Autentification
 
     init(
         path: String,
         httpMethod: HTTPMethod = .get,
-        queryItems: [URLQueryItem] = [],
-        autentification: Autentification = .none
+        queryItems: [URLQueryItem] = []
     ) {
         self.path = path
         self.httpMethod = httpMethod
         self.queryItems = queryItems
-        self.autentification = autentification
     }
 
     func asURLRequest() throws -> URLRequest {
@@ -27,10 +24,6 @@ struct APIRequest<T: Decodable> {
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         urlRequest.url?.append(queryItems: queryItems)
-
-        if case .token(let token) = autentification {
-            urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        }
 
         return urlRequest
     }

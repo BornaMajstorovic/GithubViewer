@@ -57,7 +57,7 @@ extension RepoList {
                     .foregroundStyle(.gray)
                 LazyVStack {
                     ForEach(viewStore.repos) { repo in
-                        RepoRowView(repoName: repo.name, ownerName: repo.owner.login) {
+                        RepoRowView(repoName: repo.repoName, ownerName: repo.ownerName) {
                             viewStore.send(.repoTapped(repo: repo))
                         }
                     }

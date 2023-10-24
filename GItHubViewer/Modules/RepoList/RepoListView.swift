@@ -14,7 +14,7 @@ extension RepoList {
             NavigationStackStore(store.navigationStore) {
                 WithViewStore(store, observe: { $0 }) { viewStore in
                     ZStack {
-                        if viewStore.state.loadingState.shouldShowInitialLoadingView {
+                        if viewStore.state.shouldShowInitialLoadingView {
                             loadingView
                         } else {
                             mainView(viewStore: viewStore)
@@ -25,7 +25,10 @@ extension RepoList {
                     }
                 }
                 .toolbar {
-                    ToolbarItem(placement: .principal) { Text(isContentOffsetThresholdPassed ? "Github viewer" : "").foregroundColor(.white) }
+                    ToolbarItem(placement: .principal) {
+                        Text(isContentOffsetThresholdPassed ? "Github viewer" : "")
+                            .foregroundStyle(.white)
+                    }
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbarBackground(Color.gray, for: .navigationBar)
@@ -61,7 +64,7 @@ extension RepoList {
                             viewStore.send(.repoTapped(repo: repo))
                         }
                     }
-                    if viewStore.repos.count > 0 && viewStore.isMoreDataAvailable {
+                    if viewStore.repos.count > 0 {
                         rowLoadingIndicator(loadingState: viewStore.loadingState) {
                             viewStore.send(.listReachedBottom)
                         }
@@ -72,10 +75,15 @@ extension RepoList {
             .padding(.horizontal, 24)
         }
 
-        @ViewBuilder private func rowLoadingIndicator(loadingState: RepoListLoadingState, listReachedBottomAction: @escaping () -> Void) -> some View {
+        @ViewBuilder private func rowLoadingIndicator(
+            loadingState: RepoListLoadingState,
+            listReachedBottomAction: @escaping () -> Void
+        ) -> some View {
             ZStack {
                 switch loadingState {
-                case .initial, .loadingFirstPage, .loadingNextPage:
+                case .initial:
+                    EmptyView()
+                case .idle:
                     ProgressView()
                         .progressViewStyle(.circular)
                         .onAppear {
@@ -91,7 +99,7 @@ extension RepoList {
                         }, label: {
                             Text("Try again!")
                                 .font(.subheadline)
-                                .foregroundStyle(.gray)
+                                .foregroundStyle(.white)
                                 .padding(8)
                                 .background {
                                     RoundedRectangle(cornerRadius: 12)
@@ -114,7 +122,7 @@ extension RepoList {
     }
 }
 
-extension Store<RepoList.State, RepoList.Action> {
+fileprivate extension Store<RepoList.State, RepoList.Action> {
     typealias NavigationState = StackState<RepoList.Path.State>
     typealias NavigationAction = StackAction<RepoList.Path.State, RepoList.Path.Action>
 

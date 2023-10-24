@@ -8,9 +8,7 @@ private enum LiveRateLimiterKey: DependencyKey {
         unimplemented("AuthClient - preview unimplemented")
     }
 
-    static var testValue: RateLimiter {
-        unimplemented("AuthClient - test unimplemented")
-    }
+    static var testValue: RateLimiter = MockRateLimiter()
 }
 
 extension DependencyValues {

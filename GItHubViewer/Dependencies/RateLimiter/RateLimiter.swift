@@ -1,5 +1,5 @@
 import Foundation
 
 protocol RateLimiter {
-    func rateLimit(maxRequestsPerMinute: Int, action: () async -> Void) async
+    func rateLimit<T: Decodable>(maxRequestsPerMinute: Int, action: () async throws -> T) async throws -> T 
 }

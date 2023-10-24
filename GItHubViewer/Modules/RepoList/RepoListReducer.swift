@@ -3,15 +3,15 @@ import ComposableArchitecture
 
 struct RepoList: Reducer {
     @Dependency(\.repoRepository) var repoRepository
-    @Dependency(\.rateLimiter) var rateLimiter
 
     var body: some ReducerOf<Self> {
         BindingReducer()
         Reduce { state, action in
             switch action {
             case .viewAppeared:
-                state.loadingState = .loadingFirstPage
-                return .send(.fetchData)
+                if state.shouldShowInitialLoadingView {
+                    return .send(.fetchData)
+                }
             case .repoTapped(repo: let repo):
                 state.path.append(.repoDetails(.init(repo: repo)))
             case .path(let action):
@@ -37,24 +37,11 @@ struct RepoList: Reducer {
                     }
                 }
             case .fetchDataResult(let repos):
-                state.loadingState = .loadingNextPage
+                state.loadingState = .idle
                 state.currentPage += 1
-                do {
-                    try repos.forEach { try state.repos.appendOrThrow($0) }
-                } catch let error as RepoError {
-                    if case .itemAlreadyFetched = error {
-                        state.isMoreDataAvailable = false
-                        state.loadingState = .finished
-                    }
-                } catch {
-                    state.loadingState = .failure(message: "Critical error - \(error.localizedDescription)")
-                }
+                repos.forEach { state.repos.append($0) }
             case .listReachedBottom:
-                return .run { send in
-                    await rateLimiter.rateLimit(maxRequestsPerMinute: Constants.NetworkingConstants.maxRequestsPerMinute) {
-                        await send(.fetchData)
-                    }
-                }
+                return .send(.fetchData)
             case .binding:
                 break
             }

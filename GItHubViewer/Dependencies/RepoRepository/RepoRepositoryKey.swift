@@ -8,9 +8,7 @@ private enum RepoRepositoryKey: DependencyKey {
         unimplemented("AuthClient - preview unimplemented")
     }
 
-    static var testValue: RepoRepository {
-        unimplemented("AuthClient - test unimplemented")
-    }
+    static var testValue: RepoRepository = MockRepoRepository()
 }
 
 extension DependencyValues {

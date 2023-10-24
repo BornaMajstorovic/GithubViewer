@@ -17,16 +17,3 @@ enum UIModel {
         let numberOfContributions: Int
     }
 }
-
-enum RepoError: Error {
-    case itemAlreadyFetched
-}
-
-extension Array where Element == UIModel.Repo {
-    mutating func appendOrThrow(_ element: UIModel.Repo) throws {
-        if first(where: { $0.id == element.id }) != nil {
-            throw RepoError.itemAlreadyFetched
-        }
-        append(element)
-    }
-}

@@ -3,20 +3,28 @@ import ComposableArchitecture
 
 extension RepoList {
     struct State: Equatable {
-        var currentPage: Int = 1
         @BindingState var loadingState: RepoListLoadingState = .initial
+
+        var currentPage: Int = 1
         var repos: [UIModel.Repo] = []
         var path = StackState<Path.State>()
-        var isMoreDataAvailable: Bool = true
+
+        var shouldShowInitialLoadingView: Bool {
+            loadingState.isInitial && repos.isEmpty
+        }
     }
 }
 
 extension RepoList {
     enum RepoListLoadingState: Equatable {
-        case initial, loadingFirstPage, loadingNextPage, failure(message: String), finished
+        case initial, idle, failure(message: String), finished
 
-        var shouldShowInitialLoadingView: Bool {
-            self == .initial || self == .loadingFirstPage
+        var isInitial: Bool {
+            if case .initial = self {
+                return true
+            } else {
+                return false
+            }
         }
     }
 }

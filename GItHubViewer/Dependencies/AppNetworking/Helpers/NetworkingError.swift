@@ -19,6 +19,7 @@ enum NetworkingError: Error {
         }
     }
 
+    // unauthorised request can only get first 1000 items, then API returns 422
     var isContentUnprocessable: Bool {
         if case .statusCode(let statusCode) = self {
             return statusCode == 422

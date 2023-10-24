@@ -8,9 +8,7 @@ private enum LiveNetworkingKey: DependencyKey {
         unimplemented("AuthClient - preview unimplemented")
     }
 
-    static var testValue: Networking {
-        unimplemented("AuthClient - test unimplemented")
-    }
+    static var testValue: Networking = MockNetworking()
 }
 
 extension DependencyValues {

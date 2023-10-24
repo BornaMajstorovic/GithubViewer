@@ -23,11 +23,7 @@ extension RepoDetails {
                 .onAppear {
                     viewStore.send(.viewAppeared)
                 }
-                .toolbar {
-                    ToolbarItem(placement: .principal) { Text(viewStore.navigationTitle).foregroundColor(.white) }
-                }
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbarBackground(Color.gray, for: .navigationBar)
+                .navigationTitle(viewStore.navigationTitle)
             }
         }
 

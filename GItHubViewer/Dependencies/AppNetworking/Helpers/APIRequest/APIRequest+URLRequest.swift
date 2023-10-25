@@ -1,20 +1,6 @@
 import Foundation
 
-struct APIRequest {
-    let path: String
-    let httpMethod: HTTPMethod
-    let queryItems: [URLQueryItem]
-
-    init(
-        path: String,
-        httpMethod: HTTPMethod = .get,
-        queryItems: [URLQueryItem] = []
-    ) {
-        self.path = path
-        self.httpMethod = httpMethod
-        self.queryItems = queryItems
-    }
-
+extension APIRequest {
     func asURLRequest() throws -> URLRequest {
         let baseUrl = URL(string: Constants.NetworkingConstants.baseURLString)!
         let endpoint = baseUrl.appending(path: path)

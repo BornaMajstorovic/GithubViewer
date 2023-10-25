@@ -1,13 +1,11 @@
 import Foundation
+import ComposableArchitecture
 
 extension RepoDetails {
-    enum Action: Equatable {
+    enum Action: BindableAction, Equatable {
         case viewAppeared
-        case delegate(Delegate)
         case contributorsResult([UIModel.Contributor])
 
-        enum Delegate: Equatable {
-            case someAction
-        }
+        case binding(BindingAction<State>)
     }
 }

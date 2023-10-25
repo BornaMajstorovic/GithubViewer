@@ -8,13 +8,18 @@ struct RepoDetails: Reducer {
         Reduce { state, action in
             switch action {
             case .viewAppeared:
+                state.loadingState = .loading
                 return .run { [repo = state.repo] send in
-                    let contributors = try await repoRepository.fetchContributors(for: repo)
-                    await send(.contributorsResult(contributors))
+                    do {
+                        let contributors = try await repoRepository.fetchContributors(for: repo)
+                        await send(.contributorsResult(contributors))
+                    } catch {
+                        await send(.binding(.set(\.$loadingState, .failure)))
+                    }
                 }
             case .contributorsResult(let contributors):
-                state.contributors = contributors
-            case .delegate:
+                state.loadingState = .loaded(contributors: contributors)
+            case .binding:
                 break
             }
             return .none

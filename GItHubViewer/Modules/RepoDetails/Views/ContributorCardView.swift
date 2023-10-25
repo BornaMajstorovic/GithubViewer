@@ -6,17 +6,18 @@ struct ContributorCardView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(contributor.name)
-                .font(.subheadline)
-                .foregroundStyle(.white)
+                .font(.title3)
+                .foregroundStyle(.gray)
             Spacer()
             Text("Contributions: \(contributor.numberOfContributions)")
                 .font(.body)
-                .foregroundStyle(.white)
+                .foregroundStyle(.gray)
         }
-        .padding(8)
-        .frame(width: 125, height: 125)
+        .padding(16)
+        .frame(width: 150, height: 150)
         .background {
-            GrayBackgroundView()
+            RoundedRectangle(cornerSize: .init(width: 24, height: 24))
+                .foregroundStyle(.gray.opacity(0.2))
         }
     }
 }

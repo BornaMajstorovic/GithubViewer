@@ -47,10 +47,22 @@ extension RepoList {
                 Spacer()
                 ProgressView()
                     .progressViewStyle(.circular)
-                    .frame(width: 60, height: 60)
+                    .frame(width: 64, height: 64)
                 Spacer()
                 Spacer()
             }
+        }
+
+        private var emptyView: some View {
+            VStack(spacing: 16) {
+                Spacer().frame(minHeight: 108)
+                Image(systemName: "magnifyingglass")
+                    .font(.system(size: 36))
+                Text("No data, check your internet connection, or try again later")
+                    .font(.title2)
+            }
+            .foregroundStyle(.gray.opacity(0.8))
+            .multilineTextAlignment(.center)
         }
 
         @ViewBuilder private func mainView(viewStore: ViewStore<State, Action>) -> some View {
@@ -58,15 +70,20 @@ extension RepoList {
                 Text("Github viewer")
                     .font(.title)
                     .foregroundStyle(.gray)
-                LazyVStack {
-                    ForEach(viewStore.repos) { repo in
-                        RepoRowView(repoName: repo.repoName, ownerName: repo.ownerName) {
-                            viewStore.send(.repoTapped(repo: repo))
+                    .padding(.bottom, 32)
+                if viewStore.repos.isEmpty {
+                    emptyView
+                } else {
+                    LazyVStack {
+                        ForEach(viewStore.repos) { repo in
+                            RepoRowView(repoName: repo.repoName, ownerName: repo.ownerName) {
+                                viewStore.send(.repoTapped(repo: repo))
+                            }
                         }
-                    }
-                    if viewStore.repos.count > 0 {
-                        rowLoadingIndicator(loadingState: viewStore.loadingState) {
-                            viewStore.send(.listReachedBottom)
+                        if viewStore.repos.count > 0 {
+                            rowLoadingIndicator(loadingState: viewStore.loadingState) {
+                                viewStore.send(.listReachedBottom)
+                            }
                         }
                     }
                 }

@@ -3,4 +3,101 @@
    uuid = "E36DBEF9-A713-4407-9DE0-D0BE1E805413"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3EA2749D-3473-4EF8-AF69-899EF95BA6B2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GItHubViewer/Modules/RepoList/RepoListReducer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FC242709-D329-4585-94F4-817DAC97F17E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GItHubViewer/Modules/RepoList/RepoListReducer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F5AB4888-BC10-4974-8BE6-5435A4427C2D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GItHubViewer/Modules/RepoList/RepoListReducer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "F5AB4888-BC10-4974-8BE6-5435A4427C2D - 37e80832c17fc522"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(10) suspend resume partial function for closure #1 @Sendable (ComposableArchitecture.Send&lt;GItHubViewer.RepoList.Action&gt;) async -&gt; () in closure #1 (inout GItHubViewer.RepoList.State, GItHubViewer.RepoList.Action) -&gt; ComposableArchitecture.Effect&lt;GItHubViewer.RepoList.Action&gt; in GItHubViewer.RepoList.body.getter : some"
+                  moduleName = "GItHubViewer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/borna/Projects/GItHubViewer/GItHubViewer/Modules/RepoList/RepoListReducer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "F5AB4888-BC10-4974-8BE6-5435A4427C2D - cd6ad2f8d3d28f20"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable (ComposableArchitecture.Send&lt;GItHubViewer.RepoList.Action&gt;) async -&gt; () in closure #1 (inout GItHubViewer.RepoList.State, GItHubViewer.RepoList.Action) -&gt; ComposableArchitecture.Effect&lt;GItHubViewer.RepoList.Action&gt; in GItHubViewer.RepoList.body.getter : some"
+                  moduleName = "GItHubViewer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/borna/Projects/GItHubViewer/GItHubViewer/Modules/RepoList/RepoListReducer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "F5AB4888-BC10-4974-8BE6-5435A4427C2D - 6ae794a6ec465126"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(12) suspend resume partial function for closure #1 @Sendable (ComposableArchitecture.Send&lt;GItHubViewer.RepoList.Action&gt;) async -&gt; () in closure #1 (inout GItHubViewer.RepoList.State, GItHubViewer.RepoList.Action) -&gt; ComposableArchitecture.Effect&lt;GItHubViewer.RepoList.Action&gt; in GItHubViewer.RepoList.body.getter : some"
+                  moduleName = "GItHubViewer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/borna/Projects/GItHubViewer/GItHubViewer/Modules/RepoList/RepoListReducer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "900">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

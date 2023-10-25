@@ -8,6 +8,21 @@ class LiveRepoRepository: RepoRepository{
     private init() {}
 
     func fetchRepos(page: Int) async throws -> [UIModel.Repo] {
+        let request = createRepoRequest(for: page)
+        let repos = try await fetchRepos(request: request)
+        return repos.items.map { $0.mapToUI() }
+    }
+
+    func fetchContributors(for repo: UIModel.Repo) async throws -> [UIModel.Contributor] {
+        let request = createContributorsRequest(for: repo)
+        let contributors = try await fetchContributors(request: request)
+        return contributors.map { $0.mapToUI() }
+    }
+}
+
+// MARK: - Repo helpers
+private extension LiveRepoRepository {
+    func createRepoRequest(for page: Int) -> APIRequest {
         let path = Endpoint.swiftRepos.path
         let queryItems = [
             URLQueryItem(name: "q", value: "language:swift"),
@@ -16,38 +31,22 @@ class LiveRepoRepository: RepoRepository{
             URLQueryItem(name: "page", value: "\(page)")
         ]
 
-        let repoRequest = APIRequest<NetworkingModel.Base>(path: path, queryItems: queryItems)
-
-        let repos = try await networking.performRequest(repoRequest)
-        return repos.items.map { $0.mapToUI() }
+        return APIRequest(path: path, queryItems: queryItems)
     }
 
-    func fetchContributors(for repo: UIModel.Repo) async throws -> [UIModel.Contributor] {
+    func fetchRepos(request: APIRequest) async throws -> NetworkingModel.Base {
+        try await networking.performRequest(request)
+    }
+}
+
+// MARK: - Contributor helpers
+private extension LiveRepoRepository {
+    func createContributorsRequest(for repo: UIModel.Repo) -> APIRequest {
         let path = Endpoint.contributors(repo.ownerName, repo.repoName).path
-        let contributorsRequest = APIRequest<[NetworkingModel.Contributor]>(path: path)
-
-        let contributors = try await networking.performRequest(contributorsRequest)
-        return contributors.map { $0.mapToUI() }
-    }
-}
-
-fileprivate extension NetworkingModel.Repo {
-    func mapToUI() -> UIModel.Repo {
-        .init(
-            id: id,
-            repoName: name,
-            ownerName: owner.login,
-            numberOfStars: numberOfStars,
-            numberOfForks: numberOfForks,
-            sizeOfRepo: size,
-            contributorsUrlString: contributorsUrlString
-        )
-    }
-}
-
-fileprivate extension NetworkingModel.Contributor {
-    func mapToUI() -> UIModel.Contributor {
-        .init(id: id, name: login, numberOfContributions: contributions)
+        return APIRequest(path: path)
     }
 
+    func fetchContributors(request: APIRequest) async throws -> [NetworkingModel.Contributor] {
+        try await networking.performRequest(request)
+    }
 }

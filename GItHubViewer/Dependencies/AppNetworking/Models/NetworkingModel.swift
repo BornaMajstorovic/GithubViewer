@@ -1,10 +1,16 @@
 import Foundation
 
-enum NetworkingModel {
-    struct Base: Decodable {
+enum NetworkingModel {}
+
+// MARK: - Base
+extension NetworkingModel {
+    struct Base: Codable {
         let items: [Repo]
     }
+}
 
+// MARK: - Repo
+extension NetworkingModel {
     struct Repo: Codable {
         let id: Int
         let name: String
@@ -24,12 +30,21 @@ enum NetworkingModel {
             case contributorsUrlString = "contributors_url"
         }
     }
+}
 
+// MARK: - Owner
+extension NetworkingModel {
     struct Owner: Codable {
         let id: Int
         let login: String
     }
+}
 
+// MARK: - Contributor
+extension NetworkingModel {
+    struct ContributorWrapped: Codable {
+        let items: [Contributor]
+    }
     struct Contributor: Codable {
         let id: Int
         let login: String

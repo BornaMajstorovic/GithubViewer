@@ -1,6 +1,9 @@
 import Foundation
 
-enum UIModel {
+enum UIModel {}
+
+// MARK: - Repo
+extension UIModel {
     struct Repo: Equatable, Identifiable, Hashable{
         let id: Int
         let repoName: String
@@ -10,7 +13,10 @@ enum UIModel {
         let sizeOfRepo: Int
         let contributorsUrlString: String
     }
+}
 
+// MARK: - Contributor
+extension UIModel {
     struct Contributor: Identifiable, Equatable {
         let id: Int
         let name: String

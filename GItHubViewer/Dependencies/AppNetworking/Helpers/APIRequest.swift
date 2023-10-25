@@ -1,6 +1,6 @@
 import Foundation
 
-struct APIRequest<T: Decodable> {
+struct APIRequest {
     let path: String
     let httpMethod: HTTPMethod
     let queryItems: [URLQueryItem]

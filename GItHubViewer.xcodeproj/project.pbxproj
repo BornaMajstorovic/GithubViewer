@@ -10,6 +10,7 @@
 		025638BB2AE67022009A4020 /* UIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025638BA2AE67022009A4020 /* UIModels.swift */; };
 		025638C02AE68686009A4020 /* ContributorCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025638BF2AE68686009A4020 /* ContributorCardView.swift */; };
 		025E3B5C2AE167D0006A7415 /* RepoList+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025E3B5B2AE167D0006A7415 /* RepoList+Path.swift */; };
+		027F9BD42AE8EC1F000F21A7 /* NetworkingModel+UIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027F9BD32AE8EC1F000F21A7 /* NetworkingModel+UIModel.swift */; };
 		02A076782AE3E3B70003DA69 /* LiveNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A076772AE3E3B70003DA69 /* LiveNetworking.swift */; };
 		02A0767A2AE3E3C10003DA69 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A076792AE3E3C10003DA69 /* NetworkingError.swift */; };
 		02A0767C2AE3E3CB0003DA69 /* NetworkingKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0767B2AE3E3CB0003DA69 /* NetworkingKey.swift */; };
@@ -69,6 +70,7 @@
 		025638BA2AE67022009A4020 /* UIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIModels.swift; sourceTree = "<group>"; };
 		025638BF2AE68686009A4020 /* ContributorCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributorCardView.swift; sourceTree = "<group>"; };
 		025E3B5B2AE167D0006A7415 /* RepoList+Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepoList+Path.swift"; sourceTree = "<group>"; };
+		027F9BD32AE8EC1F000F21A7 /* NetworkingModel+UIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkingModel+UIModel.swift"; sourceTree = "<group>"; };
 		0288B9012AE5897700186EE1 /* URLMacro */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = URLMacro; sourceTree = "<group>"; };
 		02A076772AE3E3B70003DA69 /* LiveNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveNetworking.swift; sourceTree = "<group>"; };
 		02A076792AE3E3C10003DA69 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				025638BA2AE67022009A4020 /* UIModels.swift */,
+				027F9BD32AE8EC1F000F21A7 /* NetworkingModel+UIModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				02A076832AE3ED050003DA69 /* LiveRateLimiter.swift in Sources */,
 				02A73D0A2AE13F4500D43A11 /* RepoDetailsView.swift in Sources */,
 				02A73D0B2AE13F4500D43A11 /* RepoDetailsReducer.swift in Sources */,
+				027F9BD42AE8EC1F000F21A7 /* NetworkingModel+UIModel.swift in Sources */,
 				02A73D112AE1571400D43A11 /* NetworkingModel.swift in Sources */,
 				02A73CC12AE10A0C00D43A11 /* GItHubViewerApp.swift in Sources */,
 				02E047592AE695BE0036A2D1 /* GrayBackgroundView.swift in Sources */,

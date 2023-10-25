@@ -3,11 +3,6 @@ import Dependencies
 
 private enum LiveRateLimiterKey: DependencyKey {
     static let liveValue: RateLimiter = LiveRateLimiter.shared
-
-    static var previewValue: RateLimiter {
-        unimplemented("AuthClient - preview unimplemented")
-    }
-
     static var testValue: RateLimiter = MockRateLimiter()
 }
 

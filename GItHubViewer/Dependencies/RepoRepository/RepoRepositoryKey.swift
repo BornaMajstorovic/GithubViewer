@@ -3,11 +3,6 @@ import Dependencies
 
 private enum RepoRepositoryKey: DependencyKey {
     static let liveValue: RepoRepository = LiveRepoRepository.shared
-
-    static var previewValue: RepoRepository {
-        unimplemented("AuthClient - preview unimplemented")
-    }
-
     static var testValue: RepoRepository = MockRepoRepository()
 }
 

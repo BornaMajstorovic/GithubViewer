@@ -2,23 +2,17 @@ import Foundation
 import Dependencies
 
 class LiveNetworking: Networking {
-    @Dependency(\.rateLimiter) var rateLimiter
+    static let shared = LiveNetworking()
 
-    public static let shared = LiveNetworking()
     private init() {}
     private let decoder = JSONDecoder()
 
     func performRequest<T: Decodable>(_ request: APIRequest) async throws -> T {
-        return try await rateLimitAndPerformRequest(request)
+        return try await makeNetworkRequest(request)
     }
 }
 
 private extension LiveNetworking {
-    func rateLimitAndPerformRequest<T: Decodable>(_ request: APIRequest) async throws -> T {
-        await rateLimiter.rateLimit(maxRequestsPerMinute: Constants.NetworkingConstants.maxRequestsPerMinute)
-        return try await makeNetworkRequest(request)
-    }
-
     func makeNetworkRequest<T: Decodable>(_ request: APIRequest) async throws -> T {
         let (data, response) = try await URLSession.shared.data(for: request.asURLRequest())
         try handleResponse(response)
@@ -40,3 +34,4 @@ private extension LiveNetworking {
         }
     }
 }
+

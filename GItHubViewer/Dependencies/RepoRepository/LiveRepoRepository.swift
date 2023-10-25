@@ -2,7 +2,7 @@ import Foundation
 import Dependencies
 
 class LiveRepoRepository: RepoRepository{
-    @Dependency(\.networking) var networking
+    @Dependency(\.rateLimitingNetworking) var rateLimitingNetworking
 
     static let shared = LiveRepoRepository()
     private init() {}
@@ -35,7 +35,7 @@ private extension LiveRepoRepository {
     }
 
     func fetchRepos(request: APIRequest) async throws -> NetworkingModel.Base {
-        try await networking.performRequest(request)
+        try await rateLimitingNetworking.performRequest(request)
     }
 }
 
@@ -47,6 +47,6 @@ private extension LiveRepoRepository {
     }
 
     func fetchContributors(request: APIRequest) async throws -> [NetworkingModel.Contributor] {
-        try await networking.performRequest(request)
+        try await rateLimitingNetworking.performRequest(request)
     }
 }

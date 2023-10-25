@@ -3,11 +3,6 @@ import Dependencies
 
 private enum LiveNetworkingKey: DependencyKey {
     static let liveValue: Networking = LiveNetworking.shared
-
-    static var previewValue: Networking {
-        unimplemented("AuthClient - preview unimplemented")
-    }
-
     static var testValue: Networking = MockNetworking()
 }
 
